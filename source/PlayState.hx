@@ -11,7 +11,7 @@ class PlayState extends FlxState
 	override public function create()
 	{
 		super.create();
-		text = new FlxText(0,0,FlxG.width, "Hello World", 64);
+		text = new FlxText(0,0,FlxG.width, "Hello Player...", 64);
 		text.setFormat(null,64,FlxColor.RED,FlxTextAlign.CENTER);
 		add(text);
 		
@@ -20,5 +20,8 @@ class PlayState extends FlxState
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
+		text.y++;
+		if(text.y > FlxG.height)
+			text.y = 0 - 64;
 	}
 }
